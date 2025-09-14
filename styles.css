@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #F6E6D9;
+  --card: #FFFFFF;
+  --ink: #2B2B2B;
+  --muted: #6D625B;
+  --accent: #C77B30;
+  --accent-2: #8C4A2F;
+  --navbar: #8C4A2F; /* color de la barra de navegación */
+  --shadow: 0 8px 28px rgba(0,0,0,.08);
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+  --space-6: 28px;
+  --tap: 48px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: env(safe-area-inset-top) var(--space-3) env(safe-area-inset-bottom);
+}
+
+/* Navbar */
+.navbar {
+  position: relative;           /* <— clave para que el menú absoluto “cuelgue” de la barra */
+  background: var(--navbar);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.nav-brand {
+  font-weight: 600;
+}
+
+.nav-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menú oculto por defecto y posicionado debajo del header */
+.nav-links {
+  position: absolute;
+  top: 100%;                    /* justo debajo de la barra */
+  right: 0;
+  display: none;                /* oculto por defecto */
+  flex-direction: column;
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: var(--space-2) 0;
+  background: var(--navbar);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  width: min(80vw, 320px);      /* ancho cómodo en móvil */
+  z-index: 20;                  /* encima del contenido */
+}
+
+.nav-links li { padding: 0; }
+.nav-links a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: white;
+  text-decoration: none;
+}
+
+/* Cuando se abre, se muestra */
+.nav-links.show-links {
+  display: flex;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: var(--space-5) var(--space-3) var(--space-3);
+}
+
+.title {
+  font-size: clamp(24px, 6vw, 32px);
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+  margin: var(--space-3) 0;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin: 0 0 var(--space-3) 0;
+}
+
+/* Invitados */
+#invitados ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+#invitados li {
+  background: #fff7f2;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.invitado-nombre {
+  font-weight: 600;
+}
+
+.invitado-frase {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Menú */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.menu-item {
+  background: #fffdfb;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.menu-item strong {
+  font-weight: 600;
+}
+
+.menu-nota {
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+/* Spotify */
+.spotify-embed {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 176px;
+  background: #1f1f1f;
+}
+
+.spotify-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Botón */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: var(--space-5) var(--space-3) var(--space-6);
+}

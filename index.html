@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF8F0" />
+  <title>Cena Año Nuevo</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container">
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+    <div class="nav-brand">🍷 Año Nuevo</div>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+    <li><a href="#invitados">Invitados</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#spotify">Playlist</a></li>
+    </ul>
+    </nav>
+    <!-- Header -->
+    <header class="fade-in" aria-label="Encabezado de la página">
+      <h1 class="title">Cena Familiar Año Nuevo 2025 🍷</h1>
+      <p class="subtitle">¡Escaneaste el QR! Ponete cómodo y chusmeá el menú y la música 👇</p>
+    </header>
+
+    <!-- Invitados -->
+    <section id="invitados" class="card fade-in" aria-labelledby="invitados-title">
+      <h2 id="invitados-title">Invitados 🎉</h2>
+      <ul>
+        <li>
+          <span class="invitado-nombre">Juan</span>
+          <span class="invitado-frase">“¿Cuándo comemos?”</span>
+        </li>
+        <li>
+          <span class="invitado-nombre">Ana</span>
+          <span class="invitado-frase">“Yo llevo el postre”</span>
+        </li>
+        <li>
+          <span class="invitado-nombre">Carlos</span>
+          <span class="invitado-frase">“Poné la playlist más fuerte”</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Menú -->
+    <section id="menu" class="card fade-in" aria-labelledby="menu-title">
+      <h2 id="menu-title">Menú 🍽️</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <strong>Entrada</strong>
+          <span class="menu-nota">Picada + opciones veggie</span>
+        </li>
+        <li class="menu-item">
+          <strong>Plato principal</strong>
+          <span class="menu-nota">Asado / Parrilla mixta</span>
+        </li>
+        <li class="menu-item">
+          <strong>Bebidas</strong>
+          <span class="menu-nota">Vinos, aguas saborizadas y gaseosas</span>
+        </li>
+        <li class="menu-item">
+          <strong>Postre</strong>
+          <span class="menu-nota">Helado artesanal</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Spotify -->
+    <section id="spotify" class="card fade-in" aria-labelledby="spotify-title">
+      <h2 id="spotify-title">Playlist de la noche 🎶</h2>
+      <div class="spotify-embed" role="region" aria-label="Reproductor de Spotify">
+        <iframe
+          title="Spotify playlist"
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/playlist/PLAYLIST_ID?utm_source=generator&theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+      <p style="margin-top: var(--space-3);">
+        <a class="btn" href="https://open.spotify.com/playlist/PLAYLIST_ID" target="_blank" rel="noopener">
+          Abrir en Spotify
+        </a>
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer aria-label="Pie de página">
+      Hecho con ❤️ para la familia
+    </footer>
+  </main>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Abrir/cerrar menú
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('show-links');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Cerrar al tocar un enlace
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.matches('a')) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Cerrar con Esc o tocando fuera
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const clickInside = e.target.closest('.navbar');
+      if (!clickInside) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
+</html>

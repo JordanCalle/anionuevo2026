@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #F6E6D9;
+  --bg: #FFF8F0;
   --card: #FFFFFF;
   --ink: #2B2B2B;
   --muted: #6D625B;
@@ -13,7 +13,7 @@
   --radius-lg: 16px;
   --radius-md: 12px;
   --space-1: 8px;
-  --space-2: 12px;
+  --space-2: 10px;
   --space-3: 16px;
   --space-4: 20px;
   --space-5: 24px;
@@ -45,6 +45,7 @@ body {
   align-items: center;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
+  margin: 10px 0 0 0;
 }
 
 .nav-brand {
@@ -105,6 +106,63 @@ header {
   color: var(--muted);
   font-size: 1rem;
 }
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  /* Alto pensado para móvil, ajustable */
+  min-height: 46vh;
+  max-height: 62vh;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  margin: var(--space-3) 0;
+}
+
+/* Imagen llena y recortada */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* mové a 'center left' si querés priorizar sujeto */
+  filter: none;            /* lo dejamos limpio; el overlay da contraste */
+}
+
+/* Capa para oscurecer y mejorar lectura del texto */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient( to right, rgba(0,0,0,.45) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,0) 100%),
+    linear-gradient( to top,   rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 40%);
+}
+
+/* Contenido encima */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 110px 20px;
+  display: grid;
+  gap: 8px;
+  max-width: 80%;
+}
+
+/* Tipos (usamos tu Cormorant Garamond) */
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.05;
+  font-size: clamp(26px, 7vw, 40px);
+  margin: 0;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 4.5vw, 24px);
+  margin: 4px 0 0;
+  opacity: .95;
+}
 
 /* Card */
 .card {
@@ -128,7 +186,9 @@ header {
   display: grid;
   gap: var(--space-2);
 }
-
+#invitados-title {
+  text-align: center;
+}
 #invitados li {
   background: #fff7f2;
   padding: var(--space-3);

@@ -193,6 +193,7 @@ header {
   background: #fff7f2;
   padding: var(--space-3);
   border-radius: var(--radius-md);
+  text-align: center;
 }
 
 .invitado-nombre {

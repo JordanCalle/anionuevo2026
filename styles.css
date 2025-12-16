@@ -18,7 +18,7 @@
   --space-4: 20px;
   --space-5: 24px;
   --space-6: 28px;
-  --tap: 48px;
+  --tap: 40px;
 }
 
 body {
@@ -64,7 +64,7 @@ body {
 .nav-links {
   position: absolute;
   top: 100%;                    /* justo debajo de la barra */
-  right: 0;
+  left: 0;
   display: none;                /* oculto por defecto */
   flex-direction: column;
   list-style: none;
@@ -220,6 +220,14 @@ header {
   border-radius: var(--radius-md);
 }
 
+#menu-title{
+  text-align: center;
+}
+
+#vegano-title{
+  text-align: center;
+}
+
 .menu-item strong {
   font-weight: 600;
 }
@@ -246,18 +254,25 @@ header {
   border: 0;
 }
 
+#spotify-title{
+  text-align: center;
+}
+
 /* Botón */
 .btn {
-  display: inline-flex;
+  display: inline-flex;           /* vuelve a tomar solo el ancho del texto */
   justify-content: center;
   align-items: center;
-  min-height: var(--tap);
-  padding: 0 var(--space-4);
+  padding: 6px 16px;
   border-radius: var(--radius-lg);
   background: var(--accent);
   color: white;
   font-weight: 600;
   text-decoration: none;
+}
+
+#contenedor_botvegan{
+  text-align: center;
 }
 
 /* Footer */

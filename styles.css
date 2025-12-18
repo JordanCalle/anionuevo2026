@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 :root {
   --bg: #FFF8F0;
   --card: #FFFFFF;
@@ -34,6 +44,7 @@ body {
   margin: 0 auto;
   padding: env(safe-area-inset-top) var(--space-3) env(safe-area-inset-bottom);
 }
+
 
 /* Navbar */
 .navbar {
@@ -73,7 +84,7 @@ body {
   background: var(--navbar);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
-  width: min(80vw, 320px);      /* ancho cómodo en móvil */
+  max-width: 100%;      /* ancho cómodo en móvil */
   z-index: 20;                  /* encima del contenido */
 }
 
@@ -228,6 +239,9 @@ header {
   text-align: center;
 }
 
+#redirect-title{
+  text-align: center;
+}
 .menu-item strong {
   font-weight: 600;
 }

@@ -233,7 +233,7 @@ header {
 }
 
 .menu-nota {
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   color: var(--muted);
 }
 
@@ -272,6 +272,9 @@ header {
 }
 
 #contenedor_botvegan{
+  text-align: center;
+}
+#contenedor_botspotify{
   text-align: center;
 }
 

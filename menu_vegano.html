@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF8F0" />
+  <title>Menu Vegano</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container">
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="#menu">Menú</a></li>
+      </ul>
+    </nav>
+    <!-- Hero -->
+    <section id="hero" class="hero" aria-label="Brindis de Año Nuevo">
+      <img
+        src="menu_vegano.jpg"
+        alt="Dos copas brindando con luces cálidas de fondo"
+        loading="eager"
+        class="hero-img"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Deleitate con nuestras delicias 100% veganas</h1>
+        <p class="hero-sub">Hecho con lechugas felices</p>
+      </div>
+    </section>
+
+    <!-- Menú -->
+    <section id="menu" class="card fade-in" aria-labelledby="menu-title">
+      <h2 id="menu-title">Menú Vegano</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <strong>Entrada:</strong>
+          <span class="menu-nota">Rodajas de limón al natural (sin intervenir)</span>
+        </li>
+        <li class="menu-item">
+          <strong>Plato principal:</strong>
+          <span class="menu-nota">Finas hebras de lechuga seleccionadas / Pasto al dente con reducción de rocío</span>
+        </li>
+        <li class="menu-item">
+          <strong>Bebidas:</strong>
+          <span class="menu-nota">Agua Vegana / Hielo derretido, cosecha 2025</span>
+        </li>
+        <li class="menu-item">
+          <strong>Postre:</strong>
+          <span class="menu-nota">Reflexión personal</span>
+        </li>
+      </ul>
+      <h3 id="vegano-title">¿No te convencen nuestras opciones veganas?</h3>
+      <div id="contenedor_botvegan">
+        <a href="index.html#menu" class="btn">Sacame de acá por favor</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer aria-label="Pie de página">
+      Hecho con ❤️ para la familia
+    </footer>
+  </main>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Abrir/cerrar menú
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('show-links');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Cerrar al tocar un enlace
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.matches('a')) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Cerrar con Esc o tocando fuera
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const clickInside = e.target.closest('.navbar');
+      if (!clickInside) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -14,7 +14,8 @@ html, body {
   --bg: #FFF8F0;
   --card: #FFFFFF;
   --ink: #2B2B2B;
-  --muted: #493b3bf3;
+  --muted: #493b3bc6;
+  --muted2:rgba(167, 19, 19, 0.953)3;
   --accent: #C77B30;
   --accent-2: #8C4A2F;
   --navbar: #8C4A2F; /* color de la barra de navegación */
@@ -224,13 +225,22 @@ header {
   display: grid;
   gap: var(--space-2);
 }
-
+.menu.descripcion{
+  color: var(--accent); /* o el color que quieras */
+  font-weight: 700;
+}
 .menu-item {
-  background: #fffdfb;
+  background: #fff7f2;
   padding: var(--space-3);
   border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 800;
 }
-
+.menu-desc{
+  color: #c35a31f5;
+  font-weight: 800;
+}
 #menu-title{
   text-align: center;
 }
@@ -245,11 +255,6 @@ header {
 .menu-item strong {
   font-weight: 700;
   font-size: 1.1rem;
-}
-
-.menu-nota {
-  font-size: 1.1rem;
-  color: var(--muted);
 }
 
 /* Spotify */

@@ -14,7 +14,7 @@ html, body {
   --bg: #FFF8F0;
   --card: #FFFFFF;
   --ink: #2B2B2B;
-  --muted: #6D625B;
+  --muted: #493b3bf3;
   --accent: #C77B30;
   --accent-2: #8C4A2F;
   --navbar: #8C4A2F; /* color de la barra de navegación */
@@ -115,7 +115,7 @@ header {
 .subtitle {
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 /* ===== HERO ===== */
 .hero {
@@ -213,7 +213,7 @@ header {
 
 .invitado-frase {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 /* Menú */
@@ -243,11 +243,12 @@ header {
   text-align: center;
 }
 .menu-item strong {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .menu-nota {
-  font-size: 0.96rem;
+  font-size: 1.1rem;
   color: var(--muted);
 }
 
@@ -296,6 +297,6 @@ header {
 footer {
   text-align: center;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   padding: var(--space-5) var(--space-3) var(--space-6);
 }

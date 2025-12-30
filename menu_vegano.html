@@ -33,29 +33,29 @@
         class="hero-img"
       />
       <div class="hero-overlay"></div>
-      <div class="hero-content">
+      <div class="hero-content reveal">
         <h1 class="hero-title">Deleitate con nuestras delicias 100% veganas</h1>
         <p class="hero-sub">Hecho con lechugas felices</p>
       </div>
     </section>
 
     <!-- Menú -->
-    <section id="menu" class="card fade-in" aria-labelledby="menu-title">
+    <section id="menu" class="card reveal" aria-labelledby="menu-title">
       <h2 id="menu-title">Menú Vegano</h2>
       <ul class="menu-list">
-        <li class="menu-item">
+        <li class="menu-item reveal reveal--stagger">
           <span class="menu-desc">Entrada:</span>
           <span>Rodajas de limón al natural (sin intervenir)</span>
         </li>
-        <li class="menu-item">
+        <li class="menu-item reveal reveal--stagger">
           <span class="menu-desc">Plato principal:</span>
           <span>Finas hebras de lechuga seleccionadas / Pasto al dente con reducción de rocío</span>
         </li>
-        <li class="menu-item">
+        <li class="menu-item reveal reveal--stagger">
           <span class="menu-desc">Bebidas:</span>
           <span>Agua Vegana / Hielo derretido, cosecha 2025</span>
         </li>
-        <li class="menu-item">
+        <li class="menu-item reveal reveal--stagger">
           <span class="menu-desc">Postre:</span>
           <span>Reflexión personal</span>
         </li>
@@ -65,6 +65,67 @@
         <a href="index.html#menu" class="btn">Sacame de acá</a>
       </div>
     </section>
+
+    <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Abrir/cerrar menú
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('show-links');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Cerrar al tocar un enlace
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.matches('a')) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Cerrar con Esc o tocando fuera
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const clickInside = e.target.closest('.navbar');
+      if (!clickInside) {
+        navLinks.classList.remove('show-links');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Reveal on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
+  // Stagger
+  document.querySelectorAll(".reveal--stagger").forEach((el, i) => {
+    el.style.setProperty("--delay", `${Math.min(i * 70, 120)}ms`);
+  });
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        obs.unobserve(e.target); // anima una vez
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -10% 0px"
+  });
+
+  els.forEach((el) => io.observe(el));
+});
+
+  </script>
 
     <!-- Footer -->
     <footer aria-label="Pie de página">

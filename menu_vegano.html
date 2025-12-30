@@ -125,46 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
   els.forEach((el) => io.observe(el));
 });
 
-  </script>
+</script>
 
     <!-- Footer -->
     <footer aria-label="Pie de página">
       Hecho con ❤️ para la familia
     </footer>
   </main>
-  <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    // Abrir/cerrar menú
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('show-links');
-      toggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Cerrar al tocar un enlace
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.matches('a')) {
-        navLinks.classList.remove('show-links');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Cerrar con Esc o tocando fuera
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        navLinks.classList.remove('show-links');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      const clickInside = e.target.closest('.navbar');
-      if (!clickInside) {
-        navLinks.classList.remove('show-links');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
+  
 </body>
 </html>
